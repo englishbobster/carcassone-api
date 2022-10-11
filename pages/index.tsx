@@ -9,8 +9,8 @@ const Home: NextPage = () => {
       <Head>
         <title>Start of Carcassonne API</title>
       </Head>
-      <Tile imageName={"test_tile.png"} startRotation={0}/>
-      <Tile imageName={"test_tile.png"} startRotation={0}/>
+      <Tile imageName={"test_tile_1.png"} startRotation={0}/>
+      <Tile imageName={"test_tile_2.png"} startRotation={0}/>
     </div>
   )
 }
