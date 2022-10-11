@@ -1,6 +1,6 @@
 import React, {useState} from "react";
 
-type TileRotations = 0|90|180|270|360
+type TileRotations = 0 | 90 | 180 | 270 | 360
 type TileProps = {
   imageName: string
   startRotation: TileRotations
@@ -15,11 +15,14 @@ export const Tile = (tileProps: TileProps) => {
     return () => setRotation(currentRotation);
   }
 
+  let imageStyle = {transform: `rotate(${rotation}deg)`};
+
   return (
       <div>
         <button>
-          <img src={tileProps.imageName} style={{transform: `rotate(${ rotation }deg)` }} onClick={rotateTile()}/>
+          <img src={tileProps.imageName} style={imageStyle} onClick={rotateTile()} alt={"TILE"}/>
         </button>
       </div>
   );
 }
+
