@@ -5,7 +5,7 @@ type Game = {
   gameId: string
 }
 
-const shuffleArray = (nrOfTiles:number) => {
+const shuffleArray = (nrOfTiles: number) => {
   let availableTiles = Array.from(Array(nrOfTiles).keys()).map( i => i + 1 )
   for (let i = availableTiles.length - 1; i > 0; i--) {
     const j = Math.floor(Math.random() * (i + 1));
@@ -25,7 +25,6 @@ export default async function handler(
       _all:true
     }
   });
-
 
   const game = await prisma.shuffled_tiles.create({
     data: {
