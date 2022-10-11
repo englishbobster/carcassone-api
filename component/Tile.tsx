@@ -19,9 +19,7 @@ export const Tile = (tileProps: TileProps) => {
 
   return (
       <div>
-        <button>
-          <img src={tileProps.imageName} style={imageStyle} onClick={rotateTile()} alt={"TILE"}/>
-        </button>
+          <img src={tileProps.imageName} className="tile" style={imageStyle} onClick={rotateTile()} alt={"TILE"}/>
       </div>
   );
 }
