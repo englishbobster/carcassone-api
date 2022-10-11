@@ -19,7 +19,7 @@ model tile {
 model shuffled_tiles {
   gameid      String @id @default(uuid())
   order       Int[]
-  current     Int
+  current     Int?
 }
 
 model played_cards {
