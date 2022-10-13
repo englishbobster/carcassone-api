@@ -16,7 +16,7 @@ model tile {
   description String?
 }
 
-model shuffled_tiles {
+model game {
   gameid      String @id @default(uuid())
   order       Int[]
   current     Int?
