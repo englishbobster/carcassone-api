@@ -1,5 +1,6 @@
-import type { NextApiRequest, NextApiResponse } from 'next'
-import prisma from '../../../../lib/prisma';
+import type {NextApiRequest, NextApiResponse} from 'next'
+import {countAvailableTiles} from "../../../../lib/tileRepository";
+import {saveTileOrder} from "../../../../lib/gameRepository";
 
 type Game = {
   gameId: string
@@ -20,16 +21,10 @@ export default async function handler(
     req: NextApiRequest,
     res: NextApiResponse<Game>
 ) {
-  const {_all: tileCount} = await prisma.tile.count({
-    select: {
-      _all:true
-    }
-  });
+  const tileCount = await countAvailableTiles();
 
-  const game = await prisma.shuffled_tiles.create({
-    data: {
-      order: shuffleArray(tileCount)
-    }
-  })
+  const shuffled = shuffleArray(tileCount);
+
+  const game = await saveTileOrder(shuffled);
   return res.status(200).json({gameId: game.gameid});
 }
