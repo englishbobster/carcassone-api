@@ -17,15 +17,15 @@ model tile {
 }
 
 model game {
-  gameid      String @id @default(uuid())
+  game_id      String @id @default(uuid())
   order       Int[]
   current     Int?
 }
 
-model played_cards {
-  gameid      String
-  cardid      Int
+model played {
+  game_id      String
+  card_id      Int
   rotation    Int
 
-  @@id([gameid, cardid])
+  @@id([game_id, card_id])
 }
