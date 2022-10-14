@@ -16,8 +16,11 @@ const shuffleArray = (nrOfTiles: number) => {
 
 export default async function handler(
     req: NextApiRequest,
-    res: NextApiResponse<game>
+    res: NextApiResponse<game | {}>
 ) {
+  if(req.method !== 'PUT'){
+    return res.status(404).send("Not Found");
+  }
   const tileCount = await countAvailableTiles();
   const shuffled = shuffleArray(tileCount);
   const game = await saveTileOrder(shuffled);
