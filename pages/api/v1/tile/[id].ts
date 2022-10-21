@@ -1,5 +1,5 @@
 import type { NextApiRequest, NextApiResponse } from 'next'
-import {findTileById} from "../../../../lib/tileRepository";
+import {findTileById} from "../../../../lib/db/tileRepository";
 import {tile} from "@prisma/client";
 
 export default async function handler(

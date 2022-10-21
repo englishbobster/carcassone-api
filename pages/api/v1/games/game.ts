@@ -1,6 +1,6 @@
 import type {NextApiRequest, NextApiResponse} from 'next'
-import {countAvailableTiles} from "../../../../lib/tileRepository";
-import {saveTileOrder} from "../../../../lib/gameRepository";
+import {countAvailableTiles} from "../../../../lib/db/tileRepository";
+import {saveTileOrder} from "../../../../lib/db/gameRepository";
 import {game} from "@prisma/client";
 
 const shuffleArray = (nrOfTiles: number) => {
