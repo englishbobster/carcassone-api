@@ -3,7 +3,7 @@ import {countAvailableTiles} from "../../../../lib/db/tileRepository";
 import {saveTileOrder} from "../../../../lib/db/gameRepository";
 import {game} from "@prisma/client";
 
-const shuffleArray = (nrOfTiles: number) => {
+const shuffleArray = (nrOfTiles: number): number[] => {
   let availableTiles = Array.from(Array(nrOfTiles).keys()).map( i => i + 1 )
   for (let i = availableTiles.length - 1; i > 0; i--) {
     const j = Math.floor(Math.random() * (i + 1));

@@ -1,9 +1,9 @@
 import React, {useState} from "react";
 
-type TileRotations = 0 | 90 | 180 | 270 | 360
+type TileRotation = 0 | 90 | 180 | 270 | 360
 type TileProps = {
   imageName: string
-  startRotation: TileRotations
+  startRotation: TileRotation
 }
 
 export const Tile = (tileProps: TileProps) => {
@@ -11,7 +11,7 @@ export const Tile = (tileProps: TileProps) => {
   const [rotation, setRotation] = useState(tileProps.startRotation)
 
   function rotateTile() {
-    let currentRotation:TileRotations = (rotation%360 + 90) as TileRotations;
+    let currentRotation: TileRotation = (rotation%360 + 90) as TileRotation;
     return () => setRotation(currentRotation);
   }
 
